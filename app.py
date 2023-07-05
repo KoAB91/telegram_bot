@@ -33,7 +33,7 @@ def get_values(message: telebot.types.Message):
 @bot.message_handler(content_types=['text',])
 def convert(message: telebot.types.Message):
     try:
-        values = message.text.split(' ')
+        values = message.text.split()
         currency_price = CurrenciesConverter.get_price(values)
     except ConversionException as e:
         bot.reply_to(message, f'Ошибка пользователя.\n{e}')
